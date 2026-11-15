@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ slug }} · Yatube{% endblock %}
+
+{% block content %}
+  <h1>Группа «{{ slug }}»</h1>
+  <p>Публикации доступны в <a href="{% url 'posts:main_page' %}">общей ленте</a>.</p>
+{% endblock %}

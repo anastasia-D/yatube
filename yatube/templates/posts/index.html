@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Публикации · Yatube{% endblock %}
+
+{% block content %}
+  <h1>Последние публикации</h1>
+  {% for post in posts %}
+    <article>
+      <header>
+        <strong>{{ post.author.get_username }}</strong>
+        <time datetime="{{ post.pub_date|date:'c' }}">{{ post.pub_date|date:'d.m.Y H:i' }}</time>
+      </header>
+      {{ post.text|linebreaks }}
+    </article>
+  {% empty %}
+    <p>Пока здесь пусто. Первую запись можно добавить в <a href="{% url 'admin:posts_post_add' %}">админке</a>.</p>
+  {% endfor %}
+{% endblock %}
